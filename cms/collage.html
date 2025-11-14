@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>College Media Library & Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #09250f;
+            color: white;
+        }
+        
+        h1,
+        h2 {
+            margin-bottom: 10px;
+            color: #c8ffda;
+        }
+        
+        .buttons button {
+            padding: 10px 15px;
+            margin: 5px;
+            background: #28a745;
+            color: white;
+            border: none;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .buttons button:hover {
+            background: #218838;
+            transform: scale(1.05);
+        }
+        
+        .media-library,
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .media-library img,
+        .gallery img {
+            width: 180px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #c8ffda;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>College - Media Library & Gallery</h1>
+
+    <h2>Select an Image</h2>
+
+    <div class="buttons">
+        <button onclick="addImage('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b')">College Fest 1</button>
+        <button onclick="addImage('https://images.unsplash.com/photo-1515169067865-5387ea92d593')">College Fest 2</button>
+
+        <button onclick="addImage('https://images.unsplash.com/photo-1518770660439-4636190af475')">Hackathon 1</button>
+        <button onclick="addImage('https://images.unsplash.com/photo-1535223289827-42f1e9919769')">Hackathon 2</button>
+
+        <button onclick="addImage('https://images.unsplash.com/photo-1544005313-94ddf0286df2')">Exam Hall 1</button>
+        <button onclick="addImage('https://images.unsplash.com/photo-1523050854058-8df90110c9f1')">Exam Hall 2</button>
+
+        <button onclick="addImage('https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf')">Sports Event 1</button>
+        <button onclick="addImage('https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d')">Sports Event 2</button>
+
+        <button onclick="addImage('https://images.unsplash.com/photo-1506784242126-2a0b0bba3c69')">Cultural Activity</button>
+        <button onclick="addImage('https://images.unsplash.com/photo-1529070538774-1843cb3265df')">College Event</button>
+
+        <button onclick="addImage('https://images.unsplash.com/photo-1552581234-26160f608093')">Internship 1</button>
+        <button onclick="addImage('https://images.unsplash.com/photo-1519389950473-47ba0277781c')">Internship 2</button>
+    </div>
+
+    <h2>Media Library</h2>
+    <div id="mediaLibrary" class="media-library"></div>
+
+    <h2>Gallery View</h2>
+    <div id="gallery" class="gallery"></div>
+
+    <script>
+        const images = [];
+
+        function addImage(link) {
+            images.push(link);
+            renderImages();
+        }
+
+        function renderImages() {
+            const mediaLib = document.getElementById("mediaLibrary");
+            const gallery = document.getElementById("gallery");
+
+            mediaLib.innerHTML = "";
+            gallery.innerHTML = "";
+
+            images.forEach(url => {
+                const img1 = document.createElement("img");
+                img1.src = url;
+                mediaLib.appendChild(img1);
+
+                const img2 = document.createElement("img");
+                img2.src = url;
+                gallery.appendChild(img2);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
